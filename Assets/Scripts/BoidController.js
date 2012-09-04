@@ -4,24 +4,12 @@ var prefab : GameObject;
 var number = 40;
 
 var boidSpeed = 0.1;
-var boidOmega = 90.0;
-
-@HideInInspector
-var trailMesh : Mesh;
+var boidYawing = 90.0;
 
 function Awake() {
-    BoidElement.target = gameObject;
-    BoidElement.speed = boidSpeed;
-    BoidElement.omega = boidOmega;
-
-    trailMesh = Mesh();
-    trailMesh.vertices = [
-        Vector3(0, 0, 1),
-        Vector3(0.5, 0, -1),
-        Vector3(-0.5, 0, -1)
-    ];
-    trailMesh.SetIndices([0, 1, 2, 0], MeshTopology.LineStrip, 0);
-    trailMesh.RecalculateBounds();
+    BoidElement.globalTarget = gameObject;
+    BoidElement.globalSpeed = boidSpeed;
+    BoidElement.globalYawing = boidYawing;
 }
 
 function Start() {
@@ -32,6 +20,6 @@ function Start() {
 }
 
 function Update() {
-    BoidElement.speed = boidSpeed;
-    BoidElement.omega = boidOmega;
+    BoidElement.globalSpeed = boidSpeed;
+    BoidElement.globalYawing = boidYawing;
 }

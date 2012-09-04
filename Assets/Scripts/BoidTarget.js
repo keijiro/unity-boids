@@ -1,6 +1,6 @@
 #pragma strict
 
-var radius = 1.0;
+var orbitRadius = 1.0;
 
 private var angles = Vector3.zero;
 private var omega = Vector3.zero;
@@ -16,6 +16,6 @@ function Update() {
         Mathf.Sin(angles.x),
         Mathf.Sin(angles.y),
         Mathf.Sin(angles.z)
-    ) * radius;
+    ) * orbitRadius;
     angles += omega * Time.deltaTime;
 }
